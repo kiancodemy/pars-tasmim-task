@@ -9,7 +9,7 @@ export default function Left() {
   const PriceOfCharge = useStore((state) => state.PriceOfCharge);
   return (
     <div
-      className="md:self-start bg-white mt-[35px] md:mt-0
+      className="md:self-start bg-white my-[35px] md:mt-0
 md:basis-[42%]"
     >
       <div className="[&>div]:md:mr-[25px] md:border-none border-solid border border-[#ffd733] md:self-start [&>div]:text-right px-[15px] rounded-md text-right md:basis-[42%] pt-3 pb-6 flex flex-col gap-y-2 bg-[#fff5cc] md:bg-[#f0eff5]">

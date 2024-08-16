@@ -24,14 +24,13 @@ export default function Right() {
   const [checked, setchcked] = useState(false);
 
   /// select your own charge price
-  const [SelectCharge, setSelectCharge] = useState<any>("");
+  const [_, setSelectCharge] = useState<any>("");
   ///focus on email//
   const [isemailfocused, setisEmailfocused] = useState<Boolean>(false);
 
-  /// choose simcard//
-
   ///choose the price if the charge//
   const [chargePrice, setchargePrice] = useState<Number | String>(20000);
+  console.log();
 
   /// toggle function to see what kind charge type you want //
   const handleToggle = () => {
@@ -88,7 +87,6 @@ export default function Right() {
           </h1>
 
           <div className="flex mb-[5px] w-[220px] mx-auto rounded-full border-solid border border-[#e6e6e8] text-[14px] text-black font-bold  bg-whit">
-            <div></div>
             {Type_off_simcard.map((item: string) => (
               <button
                 onClick={() => {
@@ -143,7 +141,9 @@ export default function Right() {
           />
           <span
             className={`text-[16px] ${
-              isPhonefocused || PhoneNumber ? "text-[9px] top-3 right-4" : ""
+              isPhonefocused || PhoneNumber
+                ? "text-[9px] z-10 top-3 right-4"
+                : ""
             } absolute right-2 text-[#999]  duration-200 top-1/2 -translate-y-[50%]`}
           >
             شماره تلفن همراه
@@ -211,7 +211,7 @@ export default function Right() {
             />
             <span
               className="
-                 text-[10px] top-3 right-4
+                 text-[10px] top-3 z-10 right-4
               } absolute right-2 text-[#999] duration-100 top-1/2 -translate-y-[50%]
                "
             >
@@ -243,7 +243,7 @@ export default function Right() {
           />
           <span
             className={`text-[16px] ${
-              isemailfocused && "text-[9px] top-3 right-4"
+              isemailfocused && "text-[9px] z-10 top-3 right-4"
             } absolute right-2 text-[#999] duration-200 top-1/2 -translate-y-[50%]`}
           >
             ایمیل (اختیاری)

@@ -1,7 +1,7 @@
 /// this is componet is for the message that is located at bottom-right of the page//
 export default function Message() {
   return (
-    <div className="w-[48px] shadow-custom-negative flex justify-center items-center h-[48px] fixed right-8 bottom-8 rounded-[15px] bg-[#fff]">
+    <div className="w-[48px] z-80 shadow-custom-negative flex justify-center items-center h-[48px] fixed right-4 bottom-6 rounded-[15px] bg-[#fff]">
       <img
         alt="Kis"
         className="w-[32px] h-[27px]"
