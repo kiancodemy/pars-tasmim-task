@@ -12,6 +12,7 @@ export default function Right() {
   const PriceError = useStore((state) => state.PriceError);
   const setPriceOfCharge = useStore((state) => state.setPriceOfCharge);
   const setTypeOfCharge = useStore((state) => state.setTypeOfCharge);
+  const PriceOfCharge = useStore((state) => state.PriceOfCharge);
   const PhoneNumber = useStore((state) => state.PhoneNumber);
 
   const setPhoneNumber = useStore((state) => state.setPhoneNumber);
@@ -30,7 +31,11 @@ export default function Right() {
 
   ///choose the price if the charge//
   const [chargePrice, setchargePrice] = useState<Number | String>(20000);
-  console.log();
+  ///initital render//
+  useEffect(() => {
+    setPriceOfCharge(PriceOfCharge);
+    setchargePrice(chargePrice);
+  }, []);
 
   /// toggle function to see what kind charge type you want //
   const handleToggle = () => {
@@ -96,6 +101,9 @@ export default function Right() {
                     setchargePrice(50000);
                     setchcked(false);
                     setTypeOfCharge("معمولی");
+                  } else {
+                    setPriceOfCharge(PriceOfCharge);
+                    setchargePrice(chargePrice);
                   }
                 }}
                 className={`grow py-[7px] px-[6px]  rounded-full border-solid ${
@@ -120,7 +128,7 @@ export default function Right() {
               value=""
               className="sr-only peer"
             ></input>
-            <div className="relative peer-disabled:cursor-default  peer-disabled:bg-gray-400 w-11 h-6 bg-[#888888] peer-focus:outline-none   rounded-full peer  peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all   peer-checked:bg-green-700"></div>
+            <div className="relative peer-disabled:cursor-default  peer-disabled:bg-gray-400 w-11 h-6 bg-[#888888] peer-focus:outline-none   rounded-full peer  peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-100 after:border after:rounded-full after:h-5 after:w-5 after:transition-all   peer-checked:bg-green-700"></div>
           </label>
         </div>
 
