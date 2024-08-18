@@ -33,7 +33,11 @@ md:basis-[42%]"
           <h1 className="md:hidden">مبلغ شارژ (+مالیات)</h1>
           <div className="flex justify-end gap-x-1 text-black font-bold">
             <span>ریال</span>
-            <span className="font-pnum ">{PriceOfCharge.toLocaleString()}</span>
+            <span className="font-pnum ">
+              {TypeOfSimcard === "دائمی"
+                ? PriceOfCharge.toLocaleString()
+                : Math.round(PriceOfCharge * 1.1).toLocaleString()}
+            </span>
           </div>
         </div>
 

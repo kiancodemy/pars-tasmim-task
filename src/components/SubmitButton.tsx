@@ -37,7 +37,7 @@ export default function SubmitButton() {
       setPriceError(true);
     } else if (
       TypeOfSimcard !== "دائمی" &&
-      (PriceOfCharge < 10000 || PriceOfCharge > 900000 * 1.1)
+      (PriceOfCharge < 10000 || PriceOfCharge > 900000)
     ) {
       setPriceError(true);
     } else {

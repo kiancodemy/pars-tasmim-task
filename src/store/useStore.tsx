@@ -30,9 +30,5 @@ export const useStore = create<StoreState>((set) => ({
   setPhoneNumber: (newBear: number) => set({ PhoneNumber: newBear }),
   setPriceError: (newBear: boolean) => set({ PriceError: newBear }),
   setphoneError: (newBear: boolean) => set({ phoneError: newBear }),
-  setPriceOfCharge: (newBear: number) =>
-    set((state) => ({
-      PriceOfCharge:
-        state.TypeOfSimcard === "اعتباری" ? Math.round(newBear * 1.1) : newBear,
-    })),
+  setPriceOfCharge: (newBear: number) => set({ PriceOfCharge: newBear }),
 }));

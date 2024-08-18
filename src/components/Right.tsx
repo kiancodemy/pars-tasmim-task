@@ -21,6 +21,7 @@ export default function Right() {
 
   //focus on phone
   const [isPhonefocused, setisfocused] = useState<Boolean>(false);
+  const [isFirst, setisFirst] = useState<number>(0);
   // if toggle buttonv is checked//
   const [checked, setchcked] = useState(false);
 
@@ -31,11 +32,6 @@ export default function Right() {
 
   ///choose the price if the charge//
   const [chargePrice, setchargePrice] = useState<Number | String>(20000);
-  ///initital render//
-  useEffect(() => {
-    setPriceOfCharge(PriceOfCharge);
-    setchargePrice(chargePrice);
-  }, []);
 
   /// toggle function to see what kind charge type you want //
   const handleToggle = () => {
@@ -97,13 +93,14 @@ export default function Right() {
                 onClick={() => {
                   setTypeOfSimcard(item);
                   if (item === "دائمی") {
-                    setPriceOfCharge(50000);
-                    setchargePrice(50000);
+                    if (isFirst === 0) {
+                      setPriceOfCharge(50000);
+                      setchargePrice(50000);
+                    }
+
+                    setisFirst((prev) => prev + 1);
                     setchcked(false);
                     setTypeOfCharge("معمولی");
-                  } else {
-                    setPriceOfCharge(PriceOfCharge);
-                    setchargePrice(chargePrice);
                   }
                 }}
                 className={`grow py-[7px] px-[6px]  rounded-full border-solid ${
@@ -177,8 +174,9 @@ export default function Right() {
                       setPriceOfCharge(item.price);
                       setchargePrice(item.price);
                     } else {
-                      setSelectCharge(chargePrice);
+                      setPriceOfCharge(PriceOfCharge);
                       setchargePrice(item.price);
+                      /*setSelectCharge(chargePrice);*/
                     }
                   }}
                   className={`bg-[#f0eff5] gap-x-1 disabled:text-gray-400  justify-center font-pnum text-center  flex border-none text-[15px] outline-none w-[95%] mx-auto rounded-[25px] mb-[10px] py-[5px] ${
